@@ -4,17 +4,15 @@ import { View, Text } from 'react-native';
 import { SocialIcon } from 'react-native-elements';
 import * as actions from '../actions';
 
-class LoginScreen extends Component {
+class LoginScreen extends Component<any,any> {
 
    logInWithFB = () => {
-
-     console.log(actions);
     this.props.facebookLogin(() => this.props.navigation.navigate('time'));
   }
 
   render() {
     return(
-      <View style= {style.socialContainer}>
+      <View style = {style.socialContainer}>
         <View style= {{flex:1}}>
           <Text style={{textAlign: 'center', fontSize: 24}}> Welcome</Text>
         </View>
@@ -36,7 +34,7 @@ class LoginScreen extends Component {
   }
 }
 
-const style = {
+const style: any = {
   socialContainer: {
     paddingTop: 30,
     flex: 1,
@@ -44,11 +42,5 @@ const style = {
     justifyContent: 'center'
   }
 };
-
-// function mapStateToProps(state) {
-//   return {
-//     bla: 'sad'
-//   }
-// }
 
 export default connect(null, actions)(LoginScreen);
